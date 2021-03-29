@@ -1,0 +1,139 @@
+import java.util.Scanner;
+public class LinkedList {
+	Student start;
+	public LinkedList()
+	{
+		start=null;
+	}
+	public void insertAtEnd()
+	{
+		Scanner sc=new Scanner(System.in);
+		Student s=new Student();
+		System.out.println("Enter Id:");
+		s.id=sc.nextInt();
+		System.out.println("Enter Name:");
+		s.name=sc.next();
+		System.out.println("Enter Semester:");
+		s.sem=sc.nextInt();
+		s.next=null;
+		if(start==null)
+		{
+			start=s;
+		}
+		Student last=start;
+		while(last.next!=null)
+		{
+			last=last.next;
+		}
+		last.next=s;
+	}
+public void deleteAtLast()
+{
+	if(start==null)
+	{
+		System.out.println("Linked list is empty:");
+	}
+	else if(start!=null)
+	{
+		if(start.next==null)
+		{
+			start=null;
+		}
+		int total=count();
+		if(total==1)
+		{
+			start=null;
+		}
+		else
+		{
+			Student s=start;
+			for(int i=1;i<total-1;i++)
+			{
+				s=s.next;
+				s.next=null;
+			}
+		}
+	}
+}
+public void deleteAtStart()
+{
+	if(start!=null)
+	{
+		Student n=start.next;
+		start.next=null;
+		start=n;
+	}
+}
+public int count()
+{
+	int count=0;
+	Student temp=start;
+	while(temp!=null)
+	{
+		count++;
+		temp=temp.next;
+	}
+	System.out.println(count);
+	return count;
+}
+public void insertAtStart()
+{
+	Scanner sc=new Scanner(System.in);
+	Student st=new Student();
+	System.out.println("Enter Id:");
+	st.id=sc.nextInt();
+	System.out.println("Enter Name:");
+	st.name=sc.next();
+	System.out.println("Enter Semester:");
+	st.sem=sc.nextInt();
+	st.next=start;
+	start=st;
+}
+public void display()
+{
+	if(start==null)
+	{
+		System.out.println("Linked list is Empty");
+	}
+	Student std=start;
+	while(std!=null)
+	{
+		System.out.println("ID"+"\t"+"Name"+"\t"+"Semester");
+		System.out.println(std.id+"\t"+std.name+"\t"+std.sem);
+		std=std.next;
+	}
+}
+public void search()
+{
+	Scanner sc=new Scanner(System.in);
+	int i=0;
+	System.out.println("Enter ID You Wants to Search:");
+	i=sc.nextInt();
+	Student st=start;
+	while(st!=null)
+	{
+	if(st.id==i)
+	{
+		System.out.println(st.id+st.name+st.sem);
+		
+	}
+	st=st.next;
+}
+}
+public void update()
+{
+	Scanner sc=new Scanner(System.in);
+	int eid=0;
+	System.out.println("Enter ID You Wants to Update");
+	eid=sc.nextInt();
+	Student stu=start;
+	while(stu!=null)
+	{
+		if(stu.id==eid)
+		{
+			stu.sem+=1;
+		}
+		stu=stu.next;
+	}
+}
+}

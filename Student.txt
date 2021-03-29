@@ -1,0 +1,6 @@
+public class Student {
+	public int id;
+	public int sem;
+	public String name;
+	Student next;
+}

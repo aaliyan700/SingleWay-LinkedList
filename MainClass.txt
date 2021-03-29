@@ -1,0 +1,55 @@
+import java.util.Scanner;
+public class MainClass {
+
+	public static void main(String[] args) {
+		LinkedList obj=new LinkedList();
+		Scanner sc=new Scanner(System.in);
+		int choice=0;
+		do
+		{
+			System.out.println("Press 1 to Insert At Start");
+			System.out.println("Press 2 to Insert At End");
+			System.out.println("Press 3 to Count");
+			System.out.println("Press 4 to Display");
+			System.out.println("Press 5 to Delete At End");
+			System.out.println("Press 6 to Delete At Start");
+			System.out.println("Press 7 to Search");
+			System.out.println("Press 8 to Update:");
+			choice=sc.nextInt();
+			if(choice==1)
+			{
+				obj.insertAtStart();
+			}
+			else if(choice==2)
+			{
+				obj.insertAtEnd();
+			}
+			else if(choice==3)
+			{
+				obj.count();
+			}
+			else if(choice==4)
+			{
+				obj.display();
+			}
+			else if(choice==5)
+			{
+				obj.deleteAtLast();
+			}
+			else if(choice==6)
+			{
+				obj.deleteAtStart();
+			}
+			else if(choice==7)
+			{
+				obj.search();
+			}
+			else if(choice==8)
+			{
+				obj.update();
+			}
+		}while(choice!=-1);
+
+	}
+
+}
